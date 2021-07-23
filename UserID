@@ -1,0 +1,44 @@
+class Account:
+    def __init__(self, id, account_number, account_balance):
+        self.id = id
+        self.account_number = account_number
+        self.account_balance = account_balance
+
+
+class User:
+    def __init__(self, id, username, passwd, email, account):
+        self.id = id
+        self.user_name = username
+        self.password = passwd
+        self.email = email
+        self.account = account
+
+
+key = "yes"
+Users_list = []
+Account_list = []
+id = 0
+account_string = "CSE000"
+while key == "yes":
+    print("select an option: ")
+    print("  1. Create User ")
+    print("  2.Show Users ")
+    option = int(input("Enter the option: "))
+    if option == 1:
+        id = id + 1
+        print("Kindly enter the below details: ")
+        user_name = input("Enter User Name: ")
+        Passwd = input("Enter the password: ")
+        email = input("Enter the Email: ")
+        account = account_string + str(id)
+        user = User(id, user_name, Passwd, email, account)
+        Users_list.append(user)
+        '''bal = input("Enter the opening amount: ")
+        account = Account(id, account, bal)
+        Account_list.append(account)'''
+        print("User Created")
+    elif option == 2:
+        print("List of users:")
+        for user in Users_list:
+            print(user.user_name)
+    key = input("Press 'yes' to select an other option else press any other key ")
